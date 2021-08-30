@@ -1,7 +1,6 @@
-
-
 // db connection
 let db;
+
 // connect to IndexedDB database 
 const request = indexedDB.open('budget_tracker', 1);
 
@@ -26,15 +25,15 @@ console.log(event.target.errorCode);
 };
 
 
-// Will be executed if we attempt to submit a new transaction and there's no internet connection
+// submit new transaction if no connection
 function saveRecord(record) {
-    // open a new transaction with the database with read and write permissions 
+    // open a new transaction with the database readwrite permissions  
     const transaction = db.transaction(['new_transaction'], 'readwrite');
   
-    // access the object store 
+    // access object store 
     const budgetObjectStore = transaction.objectStore('new_transaction');
   
-    // add record to your store with add method
+    // add record to store with add (method)
     budgetObjectStore.add(record);
 };
 
@@ -82,5 +81,5 @@ function uploadTransaction() {
   }
 }
 
-// listen for app coming back online
+// listen for reconnect 'online'
 window.addEventListener('online', uploadTransaction);
