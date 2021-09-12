@@ -4,7 +4,7 @@ let db;
 // connect to IndexedDB database 
 const request = indexedDB.open('budget_tracker', 1);
 
-// this event will happen if the database version changes
+// if the database version changes, this event will be triggered
 request.onupgradeneeded = function(event) {
     const db = event.target.result;
     db.createObjectStore('new_transaction', { autoIncrement: true });
@@ -30,27 +30,28 @@ function saveRecord(record) {
     // open a new transaction with the database readwrite permissions  
     const transaction = db.transaction(['new_transaction'], 'readwrite');
   
-    // access object store 
+    // access objectStore 
     const budgetObjectStore = transaction.objectStore('new_transaction');
   
     // add record to store with add (method)
     budgetObjectStore.add(record);
 };
 
-// function that will handle collecting all of the data 
+// function handles collecting the data 
 function uploadTransaction() {
     // open a transaction on your db
     const transaction = db.transaction(['new_transaction'], 'readwrite');
   
-    // access your object store
+    // access object store
     const budgetObjectStore = transaction.objectStore('new_transaction');
   
-    // get all transactions from store and set to a variable
+    // get transactions from store and set to a variable
     const getAll = budgetObjectStore.getAll();
   
-    // upon a successful .getAll() execution, run this function
+    // if successful .getAll() execution, run this function
     getAll.onsuccess = function() {
-    // if there was data in indexedDb's store, let's send it to the api server
+      
+    // if data in indexDb store, send to the api server
     if (getAll.result.length > 0) {
       fetch('/api/transaction', {
         method: 'POST',
@@ -65,14 +66,14 @@ function uploadTransaction() {
           if (serverResponse.message) {
             throw new Error(serverResponse);
           }
-          // open one more transaction
+          // open another transaction
           const transaction = db.transaction(['new_transaction'], 'readwrite');
-          // access the object store
+          // access object store
           const budgetObjectStore = transaction.objectStore('new_transaction');
-          // clear all items in your store
+          // clear items in the store
           budgetObjectStore.clear();
 
-          alert('All saved transactions has been submitted!');
+          alert('All offline transactions have been submitted!');
         })
         .catch(err => {
           console.log(err);

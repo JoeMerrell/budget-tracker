@@ -38,7 +38,7 @@ const FILES_TO_CACHE = [
   });
   
   self.addEventListener("fetch", (evt) => {
-    // cache successful GET requests to the API
+    // cache GET requests to the API
     if (evt.request.url.includes("/api/") && evt.request.method === "GET") {
       evt.respondWith(
         caches
