@@ -9,7 +9,7 @@
 
 ## Description
 
-This is a simple budget-tracking application that allows users to add deposits and expenses and then view that activity on a graph. The basic app was not designed by me, but is based on starter code provided as part of a challenge assignment for UCLA's Coding Bootcamp. The task of the assignment was to take the code and update it to allow for offline access and functionality. Further, once the user is back online the app will update totals. Technologies employed to achieve this extra layer of functionality include IndexedDB, a service worker, as well as a manifest.json file (for mobile). Additional requirements for the assignment include deploying the app to Heroku using MongoDB Atlas. Link to the deployed add: https://floating-mesa-57316.herokuapp.com/
+This is a simple budget-tracking application that allows users to add deposits and expenses and then view that activity on a graph. The basic app was not designed by me, but is based on starter code provided as part of a challenge assignment for UCLA's Coding Bootcamp. The task of the assignment was to take the code and update it to allow for offline access and functionality. Further, once the user is back online the app will update totals. Technologies employed to achieve this extra layer of functionality include IndexedDB, a service worker, as well as a manifest.json file (for mobile). Additional requirements for the assignment include deploying the app to Heroku using MongoDB Atlas. Link to the deployed app: https://floating-mesa-57316.herokuapp.com/
 
 
 ## Contents 
