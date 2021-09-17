@@ -34,7 +34,7 @@ Dependencies for the app can be found in the package.json file in the GitHub rep
 
 ## Usage
 
-The interface includes simple, straightforward functionality that should be clear to all users and allow them to both add and subtract funds.
+The interface includes simple, straightforward functionality that should be clear to all users and allow them to both add and subtract funds. Link to the deployed app: https://floating-mesa-57316.herokuapp.com/
 
 ## License
 
